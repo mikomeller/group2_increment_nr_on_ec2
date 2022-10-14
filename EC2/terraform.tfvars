@@ -1,0 +1,8 @@
+ubuntu_ami_name    = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+ubuntu_ami_owner   = "099720109477"
+instance_ec2_type  = "t2.medium"
+vpc_name           = "Group-2-VPC-Paolo"
+public_subnet_name = "Group-2-Public-SB"
+keypair_name       = "group-2-key"
+ec2_name           = "Group-2-Instance-Paolo"
+sg_name            = "Group-2-SG"
