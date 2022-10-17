@@ -1,0 +1,5 @@
+vpc_name = "vpc_group2_miko"
+vpc_cidr_block = "10.0.0.0/16"
+subnet_public_name = "subnet_public_group2_miko"
+subnet_public_cidr_block = "10.0.1.0/24"
+igw_tagName_group2_miko = "igw group2 miko"
