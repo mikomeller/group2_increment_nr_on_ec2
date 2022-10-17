@@ -1,0 +1,4 @@
+ssh_local: "~/.ssh/group-2-key"
+ssh_remote: "/home/ubuntu/.ssh/"
+value_file_local: "./files/value"
+value_file_remote: "/home/ubuntu/"
