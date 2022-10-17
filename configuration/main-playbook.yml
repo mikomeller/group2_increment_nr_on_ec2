@@ -1,0 +1,36 @@
+---
+- hosts: webservers
+  become: yes
+
+  tasks:
+    #- include_vars: ./group_vars/all.yml
+    # - name: Update the apt-get of the ec2 instance
+    #   apt:
+    #     update_cache: yes
+
+    # - name: Install apache2
+    #   apt:
+    #     name: apache2
+    #     state: present
+
+    # Example: Using Files
+    - name: Copy the SSH file to the webserver
+      copy:
+        src: "{{ ssh_local }}"
+        dest: "{{ ssh_remote }}"
+
+    - name: Copy the Value file to the webserver
+      copy:
+        src: "{{ value_file_local }}"
+        dest: "{{ value_file_remote }}"
+
+    # Example: Using Templates
+    # - name: Copy the template file to the webserver
+    #   template:
+    #     src: "index.html.j2"
+    #     dest: "/var/www/html/index.html"
+
+    # - name: Restart the apache2 service
+    #   service:
+    #     name: apache2
+    #     state: restarted

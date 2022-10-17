@@ -1,0 +1,21 @@
+[webservers_paolo]
+3.75.210.56
+
+#[webservers_isabelle] IP
+
+#[webservers_nastaran] IP
+
+#[webservers_miko] IP
+
+#[webservers_raj] IP
+
+[webservers:children]
+webservers_paolo
+#webservers_isabelle
+#webservers_nastaran
+#webservers_miko
+#webservers_raj
+
+[webservers:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/.ssh/group-2-key
