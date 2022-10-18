@@ -12,3 +12,10 @@ variable "aws_ami_owner" {
   description = "Contains the Owner ID of the ami for amazon linux"
   type        = string
 }
+
+
+
+variable "keypair_name" {
+  description = "our keypair"
+  type        = string
+}
