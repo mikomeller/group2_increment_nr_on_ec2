@@ -5,11 +5,12 @@ resource "aws_vpc" "second"{
     }
 }
 
-data "aws_ami" "aws_linux_image" {
+data "aws_ami" "aws_ubuntu_image" {
   owners      = [var.aws_ami_owner]
   most_recent = true
   filter {
     name   = "name"
-    values = [var.aws_ami_name]
+    values = [var.aws_ubuntu_name]
   }
 }
+
