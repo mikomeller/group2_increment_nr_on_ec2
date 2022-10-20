@@ -1,0 +1,12 @@
+- hosts: webserver
+  become: yes
+
+  tasks:
+    - name: Copy the website
+      copy:
+        mode: 0606
+        src: "{{ web_directory_local }}"
+        dest: "{{ web_directory_remote }}"
+
+    - name: Start Flask webserver
+      command: "python3 /home/ubuntu/website/main.py"
