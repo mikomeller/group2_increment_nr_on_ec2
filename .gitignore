@@ -16,6 +16,7 @@ notused*
 readbuck*
 ip_address*
 
+
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
 # version control.
@@ -36,3 +37,6 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+application/main.py
+.gitignore
+

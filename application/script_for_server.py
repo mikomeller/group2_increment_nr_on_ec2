@@ -1,21 +1,12 @@
 import time
 import paramiko
 from scp import SCPClient
-import boto3
 from urllib.request import urlopen
 
 next_server = ""
 with urlopen("https://public-ip-addresses-pimrn.s3.eu-central-1.amazonaws.com/server_2.txt") as ip:
     next_server = ip.read()
     
-# s3 = boto3.client('s3')
-# next_server = ""
-# with open('server_2_ip', 'wb') as data:
-#     s3.download_fileobj('public-ip-addresses-pimrn', 'server_2.txt', data)
-
-# with open('./server_2_ip') as file:
-#     next_server = file.readline()
-
 # Set global variables
 ssh_local = "/home/ubuntu/.ssh/group-2-key"
 
@@ -50,20 +41,10 @@ def file_upload():
     scp.put("/home/ubuntu/application/value", "/home/ubuntu/application/value")
 
 def launch_script_on_next_server():
-    # stdin,stdout,stderr = ssh_client.exec_command("export AWS_PROFILE=talent-academy")
-    # stdin,stdout,stderr = ssh_client.exec_command("export AWS_DEFAULT_REGION=eu-central-1")
     stdin,stdout,stderr = ssh_client.exec_command("sudo python3 /home/ubuntu/application/script_for_server.py")
-    # stdout.channel.recv_exit_status()
-    # print(stdout)
-    # channel = ssh_client.invoke_shell() 
-    # channel.send("sudo python3 ./application/script_for_server.py") 
-# Read and print the value from next machine
-# def read_and_print(host):
-#     stdin,stdout,stderr = ssh_client.exec_command("cat application/value")
-#     print(f"{host}: " + f"{stdout.readline()}")
 
 read_increment_write()
-time.sleep(2)
+time.sleep(10)
 ssh_connection(next_server)
 file_upload()
 launch_script_on_next_server()
