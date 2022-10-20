@@ -11,6 +11,6 @@ resource "aws_route_table" "route_table_group2" {
 }
 
 resource "aws_route_table_association" "rt_assoc_group2_miko" {
-  subnet_id = aws_subnet.group2_public_sn.id
+  subnet_id      = aws_subnet.group2_public_sn.id
   route_table_id = aws_route_table.route_table_group2.id
 }
