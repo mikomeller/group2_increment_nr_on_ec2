@@ -1,28 +1,65 @@
 ---
-- hosts: webservers
+- hosts: webserver
   become: yes
 
   tasks:
     #- include_vars: ./group_vars/all.yml
-    # - name: Update the apt-get of the ec2 instance
-    #   apt:
-    #     update_cache: yes
+    - name: Update the apt-get of the ec2 instance
+      apt:
+        update_cache: yes
 
-    # - name: Install apache2
-    #   apt:
-    #     name: apache2
-    #     state: present
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+    
+    - name: Install Python
+      apt:
+        name: python3
+        state: latest
 
-    # Example: Using Files
+    - name: Install pip
+      apt:
+        name: python3-pip
+        state: latest
+    
+    - name: Install Paramiko library
+      command: "pip install paramiko"
+
+    - name: Install SCP library
+      command: "pip install scp"
+
+    - name: Install Flask library
+      command: "pip install Flask"
+
     - name: Copy the SSH file to the webserver
       copy:
+        mode: 0400
         src: "{{ ssh_local }}"
         dest: "{{ ssh_remote }}"
 
-    - name: Copy the Value file to the webserver
+    - name: Copy the AWS config directory to the webserver
       copy:
-        src: "{{ value_file_local }}"
-        dest: "{{ value_file_remote }}"
+        src: "{{ awsconfig_local }}"
+        dest: "{{ awsconfig_remote }}"
+
+    # - name: Copy the Value file to the webserver
+    #   copy:
+    #     mode: 0600
+    #     src: "{{ value_file_local }}"
+    #     dest: "{{ value_file_remote }}"
+    
+    - name: Copy the Python script
+      copy:
+        mode: 0606
+        src: "{{ app_directory_local }}"
+        dest: "{{ app_directory_remote }}"
+
+    - name: Copy the website
+      copy:
+        mode: 0606
+        src: "{{ web_directory_local }}"
+        dest: "{{ web_directory_remote }}"
 
     # Example: Using Templates
     # - name: Copy the template file to the webserver
