@@ -11,7 +11,7 @@ crash.log
 *.DS_Store*
 paolo2
 paolo3
-website
+launch_webservers.*
 notused*
 readbuck*
 ip_address*
