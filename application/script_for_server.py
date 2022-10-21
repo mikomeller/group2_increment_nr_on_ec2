@@ -44,9 +44,9 @@ def launch_script_on_next_server():
     stdin,stdout,stderr = ssh_client.exec_command("sudo python3 /home/ubuntu/application/script_for_server.py")
 
 read_increment_write()
-time.sleep(10)
 ssh_connection(next_server)
 file_upload()
+time.sleep(10)
 launch_script_on_next_server()
 
 
