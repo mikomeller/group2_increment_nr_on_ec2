@@ -13,4 +13,7 @@ variable "aws_ami_owner" {
   type        = string
 }
 
-
+variable "keypair_name" {
+  description = "our keypair"
+  type= string
+}
